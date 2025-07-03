@@ -110,4 +110,5 @@ test('LinkedIn HomePage Test', async ({ page }) => {
 
   await page.locator('#Register').click()
 
+  await page.waitForTimeout(3000)
 });
