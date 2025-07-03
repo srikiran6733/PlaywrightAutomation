@@ -12,14 +12,20 @@ test('LinkedIn HomePage Test', async ({ page }) => {
 
   // Verify the Rediff logo is present on the homepage
   await expect(page.locator("//div[@class='logo']//img[contains(@src,'imworld.rediff.com')]")).toHaveAttribute('src');
-
+console.log("************TopLinks**********************")
   // Fetch and print all top header links
   const allLinks = await page.$$('.toplinks a');
   for (const link of allLinks) {
     const text = await link.textContent();
     console.log(text);
   }
-
+  console.log("************NavbarLinks**********************")
+//Fetch all the navbar links
+const navbarLinks = await page.$$("//div[@class='navbar maxwrap']//span/a");
+for (const link of navbarLinks) {
+  const text1 = await link.textContent();
+  console.log(text1);
+}
   // Verify 'Sign In' link is visible
   await expect(page.locator(".signin")).toBeVisible();
 
